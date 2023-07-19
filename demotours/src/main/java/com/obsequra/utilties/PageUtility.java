@@ -29,7 +29,6 @@ public class PageUtility {
 			++i;
 		}
 		col = i;
-		System.out.println(col);
 		String xpathval = "//table/tbody/tr/td[" + col + "]";
 		i = 1;
 		List<WebElement> colvalue = driver.findElements(By.xpath(xpathval));
@@ -117,10 +116,6 @@ public class PageUtility {
 		row = i;
 		return (row);
 	}
+	}
 	
-	public void selectDropDown(WebElement dropDown, String newData) {
-		Select dropDownSelect = new Select(dropDown);
-		dropDownSelect.selectByVisibleText(newData);
-	}
-	}
 
