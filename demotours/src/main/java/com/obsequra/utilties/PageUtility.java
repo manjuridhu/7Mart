@@ -18,7 +18,7 @@ public class PageUtility {
 
 	public String getXpathOfTable(String column1, String column1_value, String column2, WebDriver driver) {
 		int i = 1, col, row;
-	List<WebElement> columnnames = driver.findElements(By.xpath("//table/thead/tr/th"));
+		List<WebElement> columnnames = driver.findElements(By.xpath("//table/thead/tr/th"));
 		Iterator<WebElement> itr1 = columnnames.iterator();
 		while (itr1.hasNext()) {
 			String header = itr1.next().getText();
@@ -28,6 +28,7 @@ public class PageUtility {
 			++i;
 		}
 		col = i;
+		System.out.println(col);
 		String xpathval = "//table/tbody/tr/td[" + col + "]";
 		i = 1;
 		List<WebElement> colvalue = driver.findElements(By.xpath(xpathval));
@@ -40,6 +41,7 @@ public class PageUtility {
 			++i;
 		}
 		row = i;
+		System.out.println(row);
 		i = 1;
 		List<WebElement> columnnames2 = driver.findElements(By.xpath("//table/thead/tr/th"));
 		Iterator<WebElement> itr3 = columnnames2.iterator();
@@ -51,7 +53,9 @@ public class PageUtility {
 			++i;
 		}
 		col = i;
+		System.out.println(col);
 		xpathval = "//table/tbody/tr[" + row + "]/td[" + col + "]";
+		System.out.println(xpathval);
 		return (xpathval);
 
 	}

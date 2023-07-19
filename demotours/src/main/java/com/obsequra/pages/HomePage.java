@@ -91,7 +91,7 @@ public class HomePage extends PageUtility {
 	public void clickManageDeleveryBoy() {
 		ManageDeleveryBoy.click();
 	}
-	public void ManageDeleveryBoy_AddDeliveryBoy(String name,String username,String password,int phonenumber) {
+	public void ManageDeleveryBoy_AddDeliveryBoy(String name,String username,String password,String phonenumber) {
 		clickManageDeleveryBoy();
 		ListDeleveryPage list=new ListDeleveryPage(driver);
 		list.clickNewButton();

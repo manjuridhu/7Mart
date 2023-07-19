@@ -45,7 +45,7 @@
 				<version>2.20</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>7Mart.xml</suiteXmlFile>
+						<suiteXmlFile>>7Mart.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

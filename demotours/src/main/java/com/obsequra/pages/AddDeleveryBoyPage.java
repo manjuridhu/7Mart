@@ -2,6 +2,7 @@ package com.obsequra.pages;
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.obsequra.utilties.PageUtility;
+import com.obsequra.utilties.WaitUtility;
 public class AddDeleveryBoyPage extends PageUtility {
 	WebDriver driver;
 	@FindBy(xpath="//*[@id='name']")
@@ -21,32 +23,29 @@ public class AddDeleveryBoyPage extends PageUtility {
 	WebElement password;
 	@FindBy(xpath="//*[@id='form']/div/div[7]/button")
 	WebElement savebutton;
-
+	WaitUtility wu;
 public AddDeleveryBoyPage(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
 }
 public void enterName(String Name) {
-	name.sendKeys("Tester");
+	name.sendKeys(Name);
 }
-public void enterPhoneNumber(int number) {
-	phonenumber.sendKeys("123456789");
+public void enterPhoneNumber(String num) {
+	phonenumber.sendKeys(num);
 }
 public void enterUserName(String Username) {
-	username.sendKeys("Tester1");
+	username.sendKeys(Username);
 }
 public void enterPassword(String Password) {
-	password.sendKeys("12345");
+	password.sendKeys(Password);
 }
 public void clickSaveButton() {
-	WebElement we = driver.findElement(By.xpath("//*[@id='form']/div/div[7]/button"));
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	js.executeScript("arguments[0].click();", we);
-	savebutton.click();
+	savebutton.sendKeys(Keys.ENTER);
 }
-public void addDeleveryBoy(String Name,String Username,String Password,int number) {
+public void addDeleveryBoy(String Name,String Username,String Password,String num) {
 	enterName(Name);
-	enterPhoneNumber(number);
+	enterPhoneNumber(num);
 	enterUserName(Username);
 	enterPassword(Password);
 	clickSaveButton();

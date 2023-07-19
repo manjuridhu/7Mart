@@ -15,9 +15,9 @@ WebDriver driver;
 	public WaitUtility(WebDriver driver) {
 		this.driver = driver;
 		}
-	public void Explicitwait(By path) {
+	public void elementToBeClickable(WebElement element) {
 		  WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-		  wait.until(ExpectedConditions.presenceOfElementLocated(path));
+		  wait.until(ExpectedConditions.elementToBeClickable(element));
 		  }
 }
 

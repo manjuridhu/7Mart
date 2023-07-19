@@ -22,7 +22,7 @@ public class AddUserPage extends PageUtility{
 	@FindBy(xpath="//*[@id='password']")
 	WebElement password;
 	@FindBy(xpath="//*[@id='user_type']")
-	WebElement usertype;
+	WebElement usertypedropdown;
 	@FindBy(xpath="//*[@id='adddiv']/div/div/div/form/div[2]/button")
 	WebElement savebutton;
 	public AddUserPage(WebDriver driver) {
@@ -37,11 +37,8 @@ public class AddUserPage extends PageUtility{
 		password.sendKeys(pass_word);
 	}
 	public void selectUserType() {
-		usertype.click();
-		Select usertype=new Select(driver.findElement(By.xpath("//*[@id='user_type']")));
-		usertype.selectByIndex(1);
-		usertype.selectByValue("Staff");
-		usertype.selectByVisibleText("Staff");
+		usertypedropdown.click();
+		
 	}
 	public void clickSaveButton() {
 		savebutton.sendKeys(Keys.ENTER);

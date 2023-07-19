@@ -12,8 +12,6 @@ public class ListDeleveryPage extends PageUtility{
 	WebDriver driver;
 	@FindBy(xpath="/html/body/div/div[1]/section/div[1]/a[1]")
 	WebElement newButton;
-	@FindBy(xpath="//table/tbody/tr[1]/td[1]")
-	WebElement Test;
 	public ListDeleveryPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -22,9 +20,11 @@ public class ListDeleveryPage extends PageUtility{
 	public void clickNewButton() {
 	newButton.click();
 }
-	public boolean isnameIsDisplayed() {
+	public boolean isnameIsDisplayed(String Name,String Username) {
+		WebElement username=getWebElementOfTable("Name", Name, "Username", driver);
+		System.out.println(username.getText());
 		try {
-			if(Test.isDisplayed()) {
+			if(username.getText().equalsIgnoreCase(Username)) {
 				return true;
 			}
 			return false;
