@@ -35,8 +35,8 @@ public class DeleveryBoyTest extends TestHelper{
 		admin=new AdminUserPage(driver);
 		admin.clickOnNewButton();
 		delevery=new AddDeleveryBoyPage(driver);
-		delevery.addDeleveryBoy("Test","Test1","1234",123456789);
+		delevery.addDeleveryBoy("Ram11","Rams11","12345","123456789");
 		list1=new ListDeleveryPage(driver);
-		Assert.assertTrue(list1 .isnameIsDisplayed());
+		Assert.assertTrue(list1 .isnameIsDisplayed("Ram11","Rams11"));
 	}
 }
