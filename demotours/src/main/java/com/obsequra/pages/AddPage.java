@@ -2,6 +2,7 @@ package com.obsequra.pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,19 +30,13 @@ public class AddPage extends PageUtility {
 	PageFactory.initElements(driver, this);
 	}
 	public void enterTitle(String Title ) {
-		WebElement Result = new WebDriverWait(driver, Duration.ofSeconds(10))
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='title']")));
 		title.sendKeys(Title);
 	}
 	public void enterPageName(String PageName) {
-		WebElement Result1 = new WebDriverWait(driver, Duration.ofSeconds(10))
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='page']")));
 		page.sendKeys(PageName);
 	}
 	public void clickSaveButton() {
-		WebElement Result2 = new WebDriverWait(driver, Duration.ofSeconds(10))
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='form']/div/div[5]/button")));
-		savebutton.click();
+		savebutton.sendKeys(Keys.ENTER);
 	}
 	public void enterPageDetails(String Title,String PageName) {
 		enterTitle(Title);

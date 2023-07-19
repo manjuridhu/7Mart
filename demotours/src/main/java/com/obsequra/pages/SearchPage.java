@@ -14,11 +14,11 @@ import com.obsequra.utilties.PageUtility;
 
 public class SearchPage extends PageUtility {
 	public WebDriver driver;
-	@FindBy(xpath="/html/body/div/div[1]/section/div[1]/a[2]")
+	@FindBy(xpath="//section/div[1]/a[2]")
 	WebElement searchicon;
-	@FindBy(xpath="//*[@id=\"srdiv\"]/div/div/div/div[2]/form/div/div[1]/input")
+	@FindBy(xpath="//form/div/div[1]/input")
 	WebElement title;
-	@FindBy(xpath="//*[@id=\"srdiv\"]/div/div/div/div[2]/form/div/div[2]/button")
+	@FindBy(xpath="//form/div/div[2]/button")
 	WebElement  searchbutton;
 	@FindBy(xpath="//table/tbody/tr[1]/td[1]")
 	WebElement Flower;
@@ -30,7 +30,7 @@ public class SearchPage extends PageUtility {
 		searchicon.click();
 	}
 	public void enterTitle(String Title) {
-		title.sendKeys("Flower");
+		title.sendKeys(Title);
 	}
 	public void clickSearchButton(){
 		searchbutton.click();

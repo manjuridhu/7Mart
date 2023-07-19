@@ -14,7 +14,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.obsequra.utilties.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-
+import org.openqa.selenium.TakesScreenshot;
 public class TestHelper {
 	WebDriver driver;
 
@@ -23,7 +23,7 @@ public class TestHelper {
 	public void BrowserLaunch(@Optional("chrome") String browser) {
 		FileReaderUtility fr = new FileReaderUtility();
 		if (browser.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().setup();
 			System.setProperty("webdriver.chrome.driver", fr.getchromeDriverPath());
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
@@ -34,14 +34,14 @@ public class TestHelper {
 		driver.navigate().to(fr.getApplicationUrl());
 	}
 
-	// @Test
+	//@Test
 	public void test() {
 		System.out.println("Welcome");
 
 	}
 
 	@AfterMethod
-	/*public void screenShot(ITestResult result) {
+	public void screenShot(ITestResult result) {
 		if (ITestResult.FAILURE == result.getStatus()) {
 			try {
 				TakesScreenshot screenshot = (TakesScreenshot) driver;
@@ -52,7 +52,9 @@ public class TestHelper {
 			} catch (Exception e) {
 
 				System.out.println("Exception while taking screenshot " + e.getMessage());
-			}*/
+			}
+		}
+	}
 		public void driverClose() {
 		driver.quit();
 

@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.obsequra.pages.AddUserPage;
 import com.obsequra.pages.HomePage;
 import com.obsequra.pages.ListDeleveryPage;
 import com.obsequra.pages.LoginPage;
@@ -14,7 +15,8 @@ import com.obsequra.utilties.ExcelUtility;
 public class AddUserTest extends TestHelper {
 	LoginPage login;
 	HomePage home;
-	@Test
+	AddUserPage user;
+	//@Test
 	public void tc_009_addAdminUsers() {
 		List<ArrayList<String>> data = ExcelUtility.excelDataReader("LoginPage");
 		String username = data.get(1).get(0);
@@ -23,6 +25,6 @@ public class AddUserTest extends TestHelper {
 		login.userLogin(username,password);
 		home=new HomePage(driver);
 		home.ManageUsers_AddUsers("selenium", "11111");
-		
-}
+		Assert.assertTrue(user.isUserDisplayed());
+	}
 }

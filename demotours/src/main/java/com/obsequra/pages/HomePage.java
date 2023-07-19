@@ -15,21 +15,21 @@ import com.obsequra.pages.*;
 
 public class HomePage extends PageUtility {
 	WebDriver driver;
-	@FindBy(xpath = "/html/body/div/nav/ul[2]/li/a")
+	@FindBy(xpath = "//nav/ul[2]/li/a")
 	WebElement Admin;
 
 	@FindBy(xpath = "//nav/ul/li[1]/a")
 	WebElement Dashboard;
 
-	@FindBy(xpath = "/html//section/div/div/div[1]/div/a")
+	@FindBy(xpath = "//section/div/div/div[1]/div/a")
 	WebElement ManagePages;
-	
-	@FindBy(xpath="/html//section/div/div/div[2]/div/a")
+
+	@FindBy(xpath = "//section/div/div/div[2]/div/a")
 	WebElement ManageUsers;
-	
-	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[9]/div/a")
+
+	@FindBy(xpath = "//section/div/div/div[9]/div/a")
 	WebElement ManageDeleveryBoy;
-	
+
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -37,67 +37,73 @@ public class HomePage extends PageUtility {
 
 	public boolean isHomePageLoaded() {
 		try {
-			if(Admin.isDisplayed() && Dashboard.isDisplayed()) {
+			if (Admin.isDisplayed() && Dashboard.isDisplayed()) {
 				return true;
 			}
 			return false;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			return false;
 		}
-		}
-	public void ManagePages_AddPages(String title,String pagename){
+	}
+
+	public void ManagePages_AddPages(String title, String pagename) {
 		clickManagePages();
-		ListPage lp=new ListPage(driver);
+		ListPage lp = new ListPage(driver);
 		lp.AddPages(title, pagename);
 	}
-	public void ManagePages_EditPages(String title,String pagename) {
+
+	public void ManagePages_EditPages(String title, String pagename) {
 		clickManagePages();
-		ListPage lp=new ListPage(driver);
+		ListPage lp = new ListPage(driver);
 		lp.clickOnEditButton();
-		EditPage edit=new EditPage(driver);
+		EditPage edit = new EditPage(driver);
 		edit.EditPage(title, pagename);
-		}
+	}
+
 	public void ManagePages_DeletePage(String title) {
 		clickManagePages();
-		ListPage lp=new ListPage(driver);
+		ListPage lp = new ListPage(driver);
 		lp.clickDeleteButton();
-		Alert alert=driver.switchTo().alert();
+		Alert alert = driver.switchTo().alert();
 		alert.accept();
 		driver.navigate().back();
-		}
+	}
+
 	public void ManagePages_SearchPages(String title) {
 		clickManagePages();
-		ListPage lp=new ListPage(driver);
+		ListPage lp = new ListPage(driver);
 		lp.clickSearchButton();
-		SearchPage search=new SearchPage(driver);
+		SearchPage search = new SearchPage(driver);
 		search.searchPage(title);
 	}
+
 	public void clickManagePages() {
 		ManagePages.click();
-		
+
 	}
-	public void ManageUsers_AddUsers(String username,String password) {
+
+	public void ManageUsers_AddUsers(String username, String password) {
 		clickManageUsers();
-		AdminUserPage admin=new AdminUserPage(driver);
+		AdminUserPage admin = new AdminUserPage(driver);
 		admin.clickOnNewButton();
-		AddUserPage add=new AddUserPage(driver);
-		add.addUser(username,password);
+		AddUserPage add = new AddUserPage(driver);
+		add.addUser(username, password);
 	}
+
 	public void clickManageUsers() {
 		ManageUsers.click();
-		
+
 	}
+
 	public void clickManageDeleveryBoy() {
 		ManageDeleveryBoy.click();
 	}
-	public void ManageDeleveryBoy_AddDeliveryBoy(String name,String username,String password,String phonenumber) {
+
+	public void ManageDeleveryBoy_AddDeliveryBoy(String name, String username, String password, String phonenumber) {
 		clickManageDeleveryBoy();
-		ListDeleveryPage list=new ListDeleveryPage(driver);
+		ListDeleveryPage list = new ListDeleveryPage(driver);
 		list.clickNewButton();
-		AddDeleveryBoyPage add=new AddDeleveryBoyPage(driver);
+		AddDeleveryBoyPage add = new AddDeleveryBoyPage(driver);
 		add.addDeleveryBoy(name, username, password, phonenumber);
 	}
-	
-	
 }

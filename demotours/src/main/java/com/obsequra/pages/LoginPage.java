@@ -16,7 +16,7 @@ public class LoginPage extends PageUtility {
 	@FindBy(xpath = "//*[@id=\"login-form\"]/div/div/div[2]/input") 
 	WebElement password;
 	
-	@FindBy(xpath = "//*[@id=\"login-form\"]/div/div/div[3]/div[2]/button") 
+	@FindBy(xpath = "//*[@id='login-form']//button") 
 	WebElement loginbutton;
 	
 	public LoginPage(WebDriver driver) {

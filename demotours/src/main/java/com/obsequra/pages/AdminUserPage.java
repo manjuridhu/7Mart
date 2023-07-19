@@ -7,12 +7,14 @@ import com.obsequra.utilties.PageUtility;
 
 public class AdminUserPage extends PageUtility {
 public WebDriver driver;	
-@FindBy(xpath="/html/body/div/div[1]/section/div[1]/a[1]")
+@FindBy(xpath="//section/div[1]/a[1]")
 WebElement newButton;
 @FindBy(xpath="//table/tbody/tr[1]/td[4]/div/a")
 WebElement passworddropdown;
-@FindBy(xpath="/html/body/div/div[1]/section/div[2]/div/div[3]/div[2]/table/tbody/tr[1]/td[3]/a/span")
+@FindBy(xpath="//table/tbody/tr[1]/td[3]/a/span")
 WebElement status;
+@FindBy(xpath="//table/tbody/tr[2]/td/div/div")
+WebElement password;
 public AdminUserPage(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
@@ -27,9 +29,7 @@ public void clickPasswordDropDown() {
 public void clickStatusButton() {
 	status.click();
 }
-public boolean isPasswordDisplayed(String user,WebDriver driver) {
-	clickPasswordDropDown();
-	WebElement password=getWebElementOfTable("Name",user,"Password",driver);
+public boolean isPasswordDisplayed(String Password) {
 	if(password.isDisplayed()) {
 		return true;
 	}

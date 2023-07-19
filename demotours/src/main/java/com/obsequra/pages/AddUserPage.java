@@ -23,8 +23,10 @@ public class AddUserPage extends PageUtility{
 	WebElement password;
 	@FindBy(xpath="//*[@id='user_type']")
 	WebElement usertypedropdown;
-	@FindBy(xpath="//*[@id='adddiv']/div/div/div/form/div[2]/button")
+	@FindBy(xpath="//*[@type='submit']")
 	WebElement savebutton;
+	@FindBy(xpath="//table/tbody/tr[1]/td[1]")
+	WebElement selenium1;
 	public AddUserPage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
@@ -48,6 +50,13 @@ public class AddUserPage extends PageUtility{
 		enterPassword(password);
 		selectUserType();
 		clickSaveButton();
+	}
+	public boolean isUserDisplayed() {
+		if(selenium1.isDisplayed()) {
+			return true;
+		}
+		return false;
+	
 	}
 
 }

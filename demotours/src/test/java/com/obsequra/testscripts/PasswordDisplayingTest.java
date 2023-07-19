@@ -3,6 +3,7 @@ package com.obsequra.testscripts;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.obsequra.pages.AddPage;
@@ -27,7 +28,7 @@ public class PasswordDisplayingTest extends TestHelper {
 		home.clickManageUsers();
 		admin=new AdminUserPage(driver);
 		admin.clickPasswordDropDown();
-		
+		Assert.assertTrue(admin.isPasswordDisplayed("Password : redt_08_07_2023_12_05_51"));
 
 }
 }

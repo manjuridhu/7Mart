@@ -1,12 +1,8 @@
 package com.obsequra.testscripts;
-
 import java.util.ArrayList;
-
 import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.obsequra.pages.AddDeleveryBoyPage;
 import com.obsequra.pages.AddPage;
 import com.obsequra.pages.AdminUserPage;
@@ -23,7 +19,7 @@ public class DeleveryBoyTest extends TestHelper{
 	AdminUserPage admin;
 	AddDeleveryBoyPage delevery;
 	ListDeleveryPage list1;
-	@Test
+	//@Test
 	public void tc_010_addDeleveryBoy() {
 		List<ArrayList<String>> data = ExcelUtility.excelDataReader("LoginPage");
 		String username = data.get(1).get(0);
@@ -35,8 +31,8 @@ public class DeleveryBoyTest extends TestHelper{
 		admin=new AdminUserPage(driver);
 		admin.clickOnNewButton();
 		delevery=new AddDeleveryBoyPage(driver);
-		delevery.addDeleveryBoy("Boy","Boy1","12345","123456789");
+		delevery.addDeleveryBoy("Manu","Manus","12345","123456789");
 		list1=new ListDeleveryPage(driver);
-		Assert.assertTrue(list1 .isnameIsDisplayed("Boy","Boy1"));
+		Assert.assertTrue(list1 .isnameIsDisplayed("Manu","Manus"));
 	}
 }

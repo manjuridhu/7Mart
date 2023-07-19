@@ -23,6 +23,6 @@ public class DeleteTest extends TestHelper {
 	home=new HomePage(driver);
 	home.ManagePages_DeletePage("Jasmin");
 	list=new ListPage(driver);
-	Assert.assertTrue(list.isElementDisplayed());
+	Assert.assertFalse(list.isPageDeleted());
 	}
 }

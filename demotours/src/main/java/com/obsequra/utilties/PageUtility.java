@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 public class PageUtility {
 	public WebDriver driver;
 
@@ -41,7 +42,6 @@ public class PageUtility {
 			++i;
 		}
 		row = i;
-		System.out.println(row);
 		i = 1;
 		List<WebElement> columnnames2 = driver.findElements(By.xpath("//table/thead/tr/th"));
 		Iterator<WebElement> itr3 = columnnames2.iterator();
@@ -53,7 +53,6 @@ public class PageUtility {
 			++i;
 		}
 		col = i;
-		System.out.println(col);
 		xpathval = "//table/tbody/tr[" + row + "]/td[" + col + "]";
 		System.out.println(xpathval);
 		return (xpathval);
@@ -118,25 +117,10 @@ public class PageUtility {
 		row = i;
 		return (row);
 	}
-	public WebElement getEditButtonXpath(String editedPageName,String newPageName,WebDriver driver) {
-		String xpath=getXpathOfTable("Page",newPageName,"Action",driver);
-		xpath=xpath+"/a[1]";
-		return(driver.findElement(By.xpath(xpath)));
+	
+	public void selectDropDown(WebElement dropDown, String newData) {
+		Select dropDownSelect = new Select(dropDown);
+		dropDownSelect.selectByVisibleText(newData);
 	}
-	public WebElement getDeleteButtonXpath(String title,WebDriver driver) {
-		String xpath=getXpathOfTable("Title",title,"Action",driver);
-		xpath=xpath+"/a[2]";
-		return(driver.findElement(By.xpath(xpath)));
-	}
-	public WebElement getPasswordButtonXpath(String user,WebDriver driver) {
-		String xpath=getXpathOfTable("Username",user,"Password",driver);
-		xpath=xpath+"/div/a";
-		return(driver.findElement(By.xpath(xpath)));
-	}
-	public WebElement getActiveButtonXpath(String user,WebDriver driver) {
-		String xpath=getXpathOfTable("UserName",user,"Status",driver);
-			xpath=xpath+"/a";
-			return(driver.findElement(By.xpath(xpath)));
-		}
 	}
 

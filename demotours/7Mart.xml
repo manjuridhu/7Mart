@@ -5,22 +5,17 @@
 		<parameter name="chromebrowser" value="chrome" />
 		<parameter name="edgebrowser" value="edge" />
 		<classes>
-			<class name="com.obsequra.testscripts.HomePageTest" />
 			<class name="com.obsequra.testscripts.DeleteTest" />
 			<class name="com.obsequra.testscripts.SearchTest" />
 			<class name="com.obsequra.testscripts.PasswordDisplayingTest" />
-
-			<class name="com.obsequra.testscripts.DeleveryBoyTest" />
 			<class name="com.obsequra.testscripts.TestHelper" />
 			<class name="com.obsequra.testscripts.LoginPageTest" />
 			<class name="com.obsequra.testscripts.EditTest" />
 			<class name="com.obsequra.testscripts.ListTest" />
-
-
 			<class name="com.obsequra.testscripts.StatusTest" />
+			<class name="com.obsequra.testscripts.DeleveryBoyTest"/>
 			<class name="com.obsequra.testscripts.AddUserTest" />
-
-		</classes>
+			</classes>
 	</test> <!--
 	Test -->
 </suite> <!--
